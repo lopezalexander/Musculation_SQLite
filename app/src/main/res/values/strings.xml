@@ -1,0 +1,35 @@
+<resources>
+	<!--	AppName-->
+	<string name="app_name">Labo2</string>
+
+	<!--	Accessibility for MenuBar -->
+	<string name="open">Open</string>
+	<string name="close">Close</string>
+
+	<!--	MenuItems Titles -->
+	<string name="questionA">questionA</string>
+	<string name="questionB">questionB</string>
+	<string name="questionC">questionC</string>
+	<string name="questionD">questionD</string>
+	<string name="questionE">questionE</string>
+	<string name="menu_title">TITLE</string>
+	<string name="todo">ContentDescriptionTODO</string>
+	<string name="main_label_adominaux">Abdominaux</string>
+	<string name="main_label_biceps">Biceps</string>
+	<string name="main_label_fessiers">Cuisses et Fessiers</string>
+	<string name="main_label_dos">Dos</string>
+	<string name="main_label_epaules">Épaules</string>
+	<string name="main_label_mollets">Mollets</string>
+	<string name="main_label_pectoraux">Pectoraux</string>
+	<string name="main_label_triceps">Triceps</string>
+	<string name="main_label_avantbras">Avant-Bras</string>
+	<string name="empty_value" />
+
+	<!--	XXXXX -->
+
+	<!--	XXXXX -->
+
+	<!--	XXXXX -->
+
+	<!--	XXXXX -->
+</resources>
