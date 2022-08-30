@@ -12,11 +12,6 @@
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
 		>
-
-		<!--	MENU LOGO	-->
-		<!--	_________________________________________________________________	-->
-
-
 		<!--	MAIN CONTENT SCROLLABLE	-->
 		<!--	_________________________________________________________________	-->
 		<ScrollView
@@ -36,6 +31,9 @@
 				android:orientation="vertical"
 				>
 
+
+				<!--	MENU LOGO	-->
+				<!--	_________________________________________________________________	-->
 				<LinearLayout
 					android:id="@+id/main_menuLogo"
 					android:layout_width="match_parent"
@@ -56,9 +54,8 @@
 						tools:ignore="DuplicateSpeakableTextCheck"
 						tools:layout_editor_absoluteY="107dp"
 						/>
-
-
 				</LinearLayout>
+
 
 				<!--HORIZONTAL LINEARLAYOUT #1 -->
 				<!--_____________________________________________________________________________________________________________________________-->

@@ -13,14 +13,16 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
 
+import java.util.ArrayList;
 import java.util.Objects;
 
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
 
     //NAVIGATION DRAWER
@@ -43,6 +45,26 @@ public class MainActivity extends AppCompatActivity {
         setupItemOnClick();
 
 
+        //SETUP BUTTON MAIN MENU
+        ArrayList<ImageView> buttonList = new ArrayList<>();
+
+        buttonList.add(findViewById(R.id.main_btn_abdominaux));
+        buttonList.add(findViewById(R.id.main_btn_biceps));
+
+        buttonList.add(findViewById(R.id.main_btn_fessiers));
+        buttonList.add(findViewById(R.id.main_btn_dos));
+
+        buttonList.add(findViewById(R.id.main_btn_epaules));
+        buttonList.add(findViewById(R.id.main_btn_mollets));
+
+        buttonList.add(findViewById(R.id.main_btn_pectoraux));
+        buttonList.add(findViewById(R.id.main_btn_triceps));
+
+        buttonList.add(findViewById(R.id.main_btn_avantbras));
+
+        for (int i = 0; i < buttonList.size(); i++) {
+            buttonList.get(i).setOnClickListener(this);
+        }
     }
 
 
@@ -50,6 +72,53 @@ public class MainActivity extends AppCompatActivity {
     //  FONCTIONS    \\
     //*******************************************************************************************************************************************
 
+    @SuppressLint("NonConstantResourceId")
+    @Override
+    public void onClick(View v) {
+
+        //GET CATEGORY
+        String categorieChoisie = "";
+
+        switch (v.getId()) {
+            case R.id.main_btn_abdominaux:
+                categorieChoisie = "ABDOMINAUX";
+                break;
+            case R.id.main_btn_biceps:
+                categorieChoisie = "BICEPS";
+                break;
+            case R.id.main_btn_fessiers:
+                categorieChoisie = "FESSIERS";
+                break;
+            case R.id.main_btn_dos:
+                categorieChoisie = "DOS";
+                break;
+            case R.id.main_btn_epaules:
+                categorieChoisie = "EPAULES";
+                break;
+            case R.id.main_btn_mollets:
+                categorieChoisie = "MOLLETS";
+                break;
+            case R.id.main_btn_pectoraux:
+                categorieChoisie = "PECTORAUX";
+                break;
+            case R.id.main_btn_triceps:
+                categorieChoisie = "TRICEPS";
+                break;
+            case R.id.main_btn_avantbras:
+                categorieChoisie = "AVANTBRAS";
+                break;
+
+        }
+
+        //CALL INTENT BASED ON CATEGORY
+
+        //TEST-----------------------------------------------------------------------------
+        String toastmsg = "ca marche";
+        Toast.makeText(MainActivity.this, toastmsg, Toast.LENGTH_SHORT).show();
+        //TEST-----------------------------------------------------------------------------
+
+
+    }
 
     //***********************************\\
     //  MENU DRAWER CLICK ITEM SELECTION  \\
