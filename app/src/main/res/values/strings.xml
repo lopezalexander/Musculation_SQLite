@@ -12,8 +12,12 @@
 	<string name="questionC">questionC</string>
 	<string name="questionD">questionD</string>
 	<string name="questionE">questionE</string>
-	<string name="menu_title">TITLE</string>
+
+	<!--	MainActivity Strings -->
 	<string name="todo">ContentDescriptionTODO</string>
+
+	<string name="menu_title">TITLE</string>
+
 	<string name="main_label_adominaux">Abdominaux</string>
 	<string name="main_label_biceps">Biceps</string>
 	<string name="main_label_fessiers">Cuisses et Fessiers</string>
@@ -23,6 +27,7 @@
 	<string name="main_label_pectoraux">Pectoraux</string>
 	<string name="main_label_triceps">Triceps</string>
 	<string name="main_label_avantbras">Avant-Bras</string>
+	<string name="logo_title">Gorilla Gym</string>
 	<string name="empty_value" />
 
 	<!--	XXXXX -->

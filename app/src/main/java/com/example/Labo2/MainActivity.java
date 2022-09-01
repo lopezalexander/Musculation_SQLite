@@ -9,7 +9,9 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -18,8 +20,15 @@ import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Objects;
+import java.util.stream.Collectors;
 
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
@@ -33,6 +42,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     //MainActivity Context
     Context context = MainActivity.this;
 
+    protected SQLiteDatabase maDB;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +53,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setupNavigationToggle();
         //SETUP LA NAVIGATION DRAWER ITEMS OnCLICK LISTENER
         setupItemOnClick();
+
+
+        //Recuillir ma DB
+        maDB = (new MyDataBaseHelper(this)).getWritableDatabase();
 
 
         //SETUP BUTTON MAIN MENU
@@ -65,6 +79,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         for (int i = 0; i < buttonList.size(); i++) {
             buttonList.get(i).setOnClickListener(this);
         }
+
+
     }
 
 
@@ -107,10 +123,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.main_btn_avantbras:
                 categorieChoisie = "AVANTBRAS";
                 break;
-
         }
 
+        //Database Fetch -> categorie choisie -->object parcelable
+
         //CALL INTENT BASED ON CATEGORY
+        //Passer a la liste de exercices
+        //appelez acitivity ListeExercices
+
 
         //TEST-----------------------------------------------------------------------------
         String toastmsg = "ca marche";
