@@ -5,7 +5,7 @@ import android.os.Parcelable;
 
 public class Exercice implements Parcelable {
 
-    private String ref;
+    private Integer _id;
     private String title;
     private String img;
     private String repeat;
@@ -20,7 +20,7 @@ public class Exercice implements Parcelable {
     //  CONSTRUCTOR  \\
     //*****************************************************************************************************************************
     Exercice() {
-        this.ref = "";
+        this._id = 0;
         this.title = "";
         this.img = "";
         this.repeat = "";
@@ -33,8 +33,8 @@ public class Exercice implements Parcelable {
 
     }
 
-    Exercice(String ref, String title, String img, String repeat, String categorie, String sets, String duree, String description, String pause, String favorite) {
-        this.ref = ref;
+    Exercice(Integer _id, String title, String img, String repeat, String categorie, String sets, String duree, String description, String pause, String favorite) {
+        this._id = _id;
         this.title = title;
         this.img = img;
         this.repeat = repeat;
@@ -47,14 +47,13 @@ public class Exercice implements Parcelable {
     }
 
 
-
     //*************\\
     //  PARCELABLE  \\
     //*****************************************************************************************************************************
 
 
     protected Exercice(Parcel in) {
-        ref = in.readString();
+        _id = in.readInt();
         title = in.readString();
         img = in.readString();
         repeat = in.readString();
@@ -85,7 +84,7 @@ public class Exercice implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeString(ref);
+        parcel.writeInt(_id);
         parcel.writeString(title);
         parcel.writeString(img);
         parcel.writeString(repeat);
@@ -101,8 +100,8 @@ public class Exercice implements Parcelable {
     //  GETTERS  \\
     //*****************************************************************************************************************************
 
-    public String getRef() {
-        return ref;
+    public Integer get_id() {
+        return _id;
     }
 
     public String getTitle() {
@@ -147,8 +146,8 @@ public class Exercice implements Parcelable {
     //*****************************************************************************************************************************
 
 
-    public void setRef(String ref) {
-        this.ref = ref;
+    public void set_id(Integer _id) {
+        this._id = _id;
     }
 
     public void setTitle(String title) {
