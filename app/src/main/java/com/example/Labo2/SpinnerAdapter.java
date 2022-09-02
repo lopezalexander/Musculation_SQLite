@@ -15,12 +15,12 @@ import androidx.annotation.Nullable;
 public class SpinnerAdapter extends ArrayAdapter<String> {
 
     Context context;
-    String[] provinceList;
+    String[] listeNomImage;
 
-    public SpinnerAdapter(Context context, int textViewResourceId, String[] provinceList) {
-        super(context, textViewResourceId, provinceList);
+    public SpinnerAdapter(Context context, int textViewResourceId, String[] listeNomImage) {
+        super(context, textViewResourceId, listeNomImage);
         this.context = context;
-        this.provinceList = provinceList;
+        this.listeNomImage = listeNomImage;
     }
 
     // Override these methods and instead return our custom view (with image and text)
@@ -42,7 +42,8 @@ public class SpinnerAdapter extends ArrayAdapter<String> {
 
         View row = inflater.inflate(R.layout.spinner_content_layout, parent, false);
         TextView label = (TextView) row.findViewById(R.id.text);
-        label.setText(provinceList[position]);
+        label.setText(listeNomImage[position]);
+
 
         return row;
     }

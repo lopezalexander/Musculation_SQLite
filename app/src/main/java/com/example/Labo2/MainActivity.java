@@ -26,7 +26,6 @@ import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-
     //NAVIGATION DRAWER
     DrawerLayout drawerLayout;
     NavigationView navigationView;
@@ -77,13 +76,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         //TEST ALL AND CATEGORIE
 
         //ArrayList<Exercice> allEntries = maDB.obtenirToutLesExercices();
-        ArrayList<Exercice> allEntries = maDB.obtenirExerciceParCategorie("Abdominaux");
+        //ArrayList<Exercice> allEntries = maDB.obtenirExerciceParCategorie("Abdominaux");
 
-        for (Exercice unique : allEntries) {
-            Log.d("row", "///////////////////////////////////////////////////////////////////////////////////////////////");
-            Log.d("row", unique.get_id().toString());
-            Log.d("row", unique.getTitle());
-        }
+//        for (Exercice unique : allEntries) {
+//            Log.d("row", "///////////////////////////////////////////////////////////////////////////////////////////////");
+//            Log.d("row", unique.get_id().toString());
+//            Log.d("row", unique.getTitle());
+//        }
 
         //TEST INSERT
         //maDB.insertExercice("test", "test", "test", "test", "test", "test", "test", "test", "test");
@@ -107,32 +106,33 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         switch (v.getId()) {
             case R.id.main_btn_abdominaux:
-                categorieChoisie = "ABDOMINAUX";
+                categorieChoisie = "Abdominaux";
                 break;
             case R.id.main_btn_biceps:
-                categorieChoisie = "BICEPS";
+                categorieChoisie = "Biceps";
                 break;
             case R.id.main_btn_fessiers:
-                categorieChoisie = "FESSIERS";
+                categorieChoisie = "Cuisses-Fessiers";
                 break;
             case R.id.main_btn_dos:
-                categorieChoisie = "DOS";
+                categorieChoisie = "Dos";
                 break;
             case R.id.main_btn_epaules:
-                categorieChoisie = "EPAULES";
+                categorieChoisie = "Epaules";
                 break;
             case R.id.main_btn_mollets:
-                categorieChoisie = "MOLLETS";
+                categorieChoisie = "Mollets";
                 break;
             case R.id.main_btn_pectoraux:
-                categorieChoisie = "PECTORAUX";
+                categorieChoisie = "Pectoraux";
                 break;
             case R.id.main_btn_triceps:
-                categorieChoisie = "TRICEPS";
+                categorieChoisie = "Triceps";
                 break;
             case R.id.main_btn_avantbras:
-                categorieChoisie = "AVANTBRAS";
+                categorieChoisie = "Avant Bras";
                 break;
+
         }
 
         //Database Fetch -> categorie choisie -->object parcelable
@@ -141,8 +141,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         listeExerciceCategorie = maDB.obtenirExerciceParCategorie(categorieChoisie);
 
-        Intent intentToCategorie = new Intent(context, ListeExercice.class);
-        intentToCategorie.putParcelableArrayListExtra("listeExerciceCategorie", listeExerciceCategorie);
+        Intent intentToCategorie = new Intent(context, CategorieActivity.class);
+        intentToCategorie.putExtra("categorieChoisie", categorieChoisie);
         startActivity(intentToCategorie);
 
 
@@ -165,9 +165,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             switch (item.getItemId()) {
 
                 case R.id.questionA:
+                    //CONTACT EMAIL
                     drawerLayout.closeDrawers();
                     break;
                 case R.id.questionB:
+                    //CONTACT PHONE
                     drawerLayout.closeDrawers();
                     break;
 //                case R.id.questionC:
