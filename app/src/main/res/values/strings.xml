@@ -30,10 +30,14 @@
 	<string name="logo_title">Gorilla Gym</string>
 	<string name="empty_value" />
 	<string name="form_enregistrer">Ajouter un Exercice</string>
+	<string name="form_title">Nom</string>
+	<string name="form_description">Description</string>
+	<string name="form_categorie">Categorie</string>
+	<string name="form_hint_empty" />
 
 	<!--	Spinner Data -->
 
-	<string-array name="spinnerData">
+	<string-array name="spinnerImage">
 
 		<item>abdominaux_crunch_a_la_cordee</item>
 		<item>abdominaux_crunch_au_sol</item>
@@ -73,6 +77,21 @@
 		<item>triceps_extensions_au_dessus_de_la_tete</item>
 
 	</string-array>
+
+	<string-array name="spinnerCategorie">
+
+		<item>Abdominaux</item>
+		<item>Biceps</item>
+		<item>Cuisses-Fessiers</item>
+		<item>Dos</item>
+		<item>Epaules</item>
+		<item>Mollets</item>
+		<item>Pectoraux</item>
+		<item>Triceps</item>
+		<item>Avant Bras</item>
+
+	</string-array>
+
 
 	<!--	XXXXX -->
 
