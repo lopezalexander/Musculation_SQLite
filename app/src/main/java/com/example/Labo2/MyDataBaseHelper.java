@@ -33,7 +33,6 @@ public class MyDataBaseHelper extends SQLiteOpenHelper {
                 "favorite TEXT)";
         db.execSQL(sql);
 
-
         //String[] listDonne = [];
         String[][] databaseData = {
                 {"Curl Zottman", "avant_bras_curl_zottman", "x10", "Avant Bras", "3 Set", "5 Minutes", "La position de départ est la même que pour le curl haltères : debout, dos bien droit, genoux légèrement fléchis, deux haltères courtes dans les mains avec une prise en supination. \n\nEn contractant les biceps et en gardant les coudes près du corps, amener les deux haltères en position haute. Une fois dans cette position, faites tourner votre poignet de 180 degrés jusqu'à ce que vous ayez une prise en pronation. Redescendre ensuite les haltères en conservant cette prise. Quand les haltères approchent des cuisses, tournez de nouveau les poignets pour revenir à la position de départ prise en supination.", "30 Secondes", "0"},
@@ -186,7 +185,6 @@ public class MyDataBaseHelper extends SQLiteOpenHelper {
         return allEntriesCategorie;
     }
 
-
     public ArrayList<Exercice> obtenirFavoris() {
 
         ArrayList<Exercice> allEntriesFavoris = new ArrayList<>();
@@ -213,6 +211,11 @@ public class MyDataBaseHelper extends SQLiteOpenHelper {
         }
 
         return allEntriesFavoris;
+    }
+
+    public void marquerFavorie(int exerciceID) {
+        this.getWritableDatabase().execSQL("UPDATE exercices SET favorite = '1' WHERE _id = ?", new Integer[]{exerciceID});
+
     }
 
     public void effacerExercice(int ID) {
