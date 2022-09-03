@@ -7,10 +7,17 @@
 	android:background="#F3FFE5"
 	>
 
+	<Button
+		android:id="@+id/btn_form"
+		android:layout_width="150dp"
+		android:layout_height="50dp"
+		android:text="FORM"
+		></Button>
+
 	<ListView
 		android:id="@+id/liste_Exercices_Categorie"
-		android:layout_width="match_parent"
-		android:layout_height="match_parent"
+		android:layout_width="100dp"
+		android:layout_height="100dp"
 		android:background="@color/purple_200"
 		app:layout_constraintBottom_toBottomOf="parent"
 		app:layout_constraintEnd_toEndOf="parent"
