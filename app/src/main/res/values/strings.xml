@@ -40,6 +40,7 @@
 	<string name="form_pause">Pause</string>
 	<string name="form_duree">Durée</string>
 	<string name="form_image">Image</string>
+	<string name="main_label_favoris">Favoris</string>
 
 	<!--	Spinner Data -->
 	<string-array name="spinnerImage">

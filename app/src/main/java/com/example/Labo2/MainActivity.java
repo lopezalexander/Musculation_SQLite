@@ -53,6 +53,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         //SETUP BUTTON MAIN MENU
         ArrayList<ImageView> buttonList = new ArrayList<>();
 
+        buttonList.add(findViewById(R.id.main_btn_favoris));
+
         buttonList.add(findViewById(R.id.main_btn_abdominaux));
         buttonList.add(findViewById(R.id.main_btn_biceps));
 
@@ -71,7 +73,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             buttonList.get(i).setOnClickListener(this);
         }
 
- 
+
     }
 
 
@@ -87,6 +89,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         String categorieChoisie = "";
 
         switch (v.getId()) {
+            case R.id.main_btn_favoris:
+                categorieChoisie = "Favoris";
+                break;
             case R.id.main_btn_abdominaux:
                 categorieChoisie = "Abdominaux";
                 break;
@@ -117,14 +122,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         }
 
-        //Database Fetch -> categorie choisie -->object parcelable
-
-        ArrayList<Exercice> listeExerciceCategorie = new ArrayList<>();
-
-        listeExerciceCategorie = maDB.obtenirExerciceParCategorie(categorieChoisie);
-
+        //Get CategorieActivity
         Intent intentToCategorie = new Intent(context, CategorieActivity.class);
+
+        //Send CategorieChoisie to CategorieActivity
         intentToCategorie.putExtra("categorieChoisie", categorieChoisie);
+
+        //Go To CategorieActivity
         startActivity(intentToCategorie);
 
 
@@ -132,8 +136,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         String toastmsg = "ca marche";
         Toast.makeText(MainActivity.this, toastmsg, Toast.LENGTH_SHORT).show();
         //TEST-----------------------------------------------------------------------------
-
-
     }
 
     //***********************************\\

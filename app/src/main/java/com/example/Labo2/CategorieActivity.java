@@ -33,14 +33,18 @@ public class CategorieActivity extends AppCompatActivity implements AdapterView.
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        //DEFAULT
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_categorie);
+
+        //SETUP BACK BUTTON
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
 
+        //SET DATABASE
         maDB = new MyDataBaseHelper(this);
 
 
-        //GET ARRAYLIST OF EXERCICE PAR CATEGORIE
+        //GET CategorieChoisie
         Bundle extras = getIntent().getExtras();
         String categorieChoisie = extras.getString("categorieChoisie");
 
@@ -50,14 +54,19 @@ public class CategorieActivity extends AppCompatActivity implements AdapterView.
 
 
     private void listerExerciceSelonCategorie(String categorieChoisie) {
+        //New Exercice List
         listeExercices = new ArrayList<>();
+
+        //Get Exercices par Categorie ou Favoris
+        if (categorieChoisie.equals("Favoris")) {
+            listeExercices = maDB.obtenirFavoris();
+        } else {
+            listeExercices = maDB.obtenirExerciceParCategorie(categorieChoisie);
+        }
+
+        //Get ListView to show Exercices
         listViewExercicesCategorie = findViewById(R.id.liste_Exercices_Categorie);
-
-
-        listeExercices = maDB.obtenirExerciceParCategorie(categorieChoisie);
-
         arrayAdapter = new ExerciceArrayAdapter(this, R.layout.exercices_list_layout, listeExercices);
-
         listViewExercicesCategorie.setAdapter(arrayAdapter);
     }
 
@@ -149,13 +158,11 @@ public class CategorieActivity extends AppCompatActivity implements AdapterView.
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()) {
-            case android.R.id.home:
-                NavUtils.navigateUpFromSameTask(this);
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
+        if (item.getItemId() == android.R.id.home) {
+            NavUtils.navigateUpFromSameTask(this);
+            return true;
         }
+        return super.onOptionsItemSelected(item);
     }
 
 

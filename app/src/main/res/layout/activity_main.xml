@@ -77,6 +77,46 @@
 					android:orientation="horizontal"
 					>
 
+
+					<LinearLayout
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:gravity="center"
+						android:orientation="vertical"
+						>
+
+
+						<ImageButton
+							android:id="@+id/main_btn_favoris"
+							android:layout_width="150dp"
+							android:layout_height="150dp"
+							android:background="@drawable/roundcorner"
+							android:contentDescription="@string/todo"
+							android:scaleType="fitXY"
+							app:layout_constraintEnd_toStartOf="@+id/main_btn_biceps"
+							app:layout_constraintStart_toStartOf="parent"
+							app:srcCompat="@drawable/menu_abdominaux"
+							tools:layout_editor_absoluteY="107dp"
+							/>
+
+						<TextView
+							android:id="@+id/main_label_favoris"
+							android:layout_width="150dp"
+							android:layout_height="0dp"
+							android:layout_weight="1"
+							android:gravity="center"
+							android:text="@string/main_label_favoris"
+							android:textColor="#1A237E"
+							/>
+					</LinearLayout>
+
+
+					<Space
+						android:layout_width="50dp"
+						android:layout_height="50dp"
+						/>
+
+
 					<LinearLayout
 						android:layout_width="wrap_content"
 						android:layout_height="wrap_content"
@@ -110,10 +150,19 @@
 					</LinearLayout>
 
 
-					<Space
-						android:layout_width="50dp"
-						android:layout_height="50dp"
-						/>
+				</LinearLayout>
+
+
+				<!--HORIZONTAL LINEARLAYOUT #2 -->
+				<!--_____________________________________________________________________________________________________________________________-->
+				<LinearLayout
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:layout_marginTop="15dp"
+					android:gravity="center"
+					android:orientation="horizontal"
+					>
+
 
 					<LinearLayout
 						android:layout_width="wrap_content"
@@ -146,18 +195,11 @@
 					</LinearLayout>
 
 
-				</LinearLayout>
+					<Space
+						android:layout_width="50dp"
+						android:layout_height="50dp"
+						/>
 
-
-				<!--HORIZONTAL LINEARLAYOUT #2 -->
-				<!--_____________________________________________________________________________________________________________________________-->
-				<LinearLayout
-					android:layout_width="match_parent"
-					android:layout_height="wrap_content"
-					android:layout_marginTop="15dp"
-					android:gravity="center"
-					android:orientation="horizontal"
-					>
 
 					<LinearLayout
 						android:layout_width="wrap_content"
@@ -192,10 +234,17 @@
 					</LinearLayout>
 
 
-					<Space
-						android:layout_width="50dp"
-						android:layout_height="50dp"
-						/>
+				</LinearLayout>
+
+				<!--HORIZONTAL LINEARLAYOUT #3  -->
+				<!--_____________________________________________________________________________________________________________________________-->
+				<LinearLayout
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:layout_marginTop="15dp"
+					android:gravity="center"
+					android:orientation="horizontal"
+					>
 
 					<LinearLayout
 						android:layout_width="wrap_content"
@@ -229,17 +278,11 @@
 							/>
 					</LinearLayout>
 
-				</LinearLayout>
+					<Space
+						android:layout_width="50dp"
+						android:layout_height="50dp"
+						/>
 
-				<!--HORIZONTAL LINEARLAYOUT #3  -->
-				<!--_____________________________________________________________________________________________________________________________-->
-				<LinearLayout
-					android:layout_width="match_parent"
-					android:layout_height="wrap_content"
-					android:layout_marginTop="15dp"
-					android:gravity="center"
-					android:orientation="horizontal"
-					>
 
 					<LinearLayout
 						android:layout_width="wrap_content"
@@ -256,7 +299,7 @@
 							android:adjustViewBounds="true"
 							android:background="@drawable/roundcorner"
 							android:contentDescription="@string/todo"
-							android:scaleType="centerInside"
+							android:scaleType="fitXY"
 							app:layout_constraintEnd_toStartOf="@+id/main_btn_mollets"
 							app:layout_constraintStart_toStartOf="parent"
 							app:srcCompat="@drawable/menu__epaules"
@@ -276,10 +319,18 @@
 					</LinearLayout>
 
 
-					<Space
-						android:layout_width="50dp"
-						android:layout_height="50dp"
-						/>
+				</LinearLayout>
+
+				<!--HORIZONTAL LINEARLAYOUT #4  -->
+				<!--_____________________________________________________________________________________________________________________________-->
+				<LinearLayout
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:layout_marginTop="15dp"
+					android:gravity="center"
+					android:orientation="horizontal"
+					>
+
 
 					<LinearLayout
 						android:layout_width="wrap_content"
@@ -313,17 +364,11 @@
 					</LinearLayout>
 
 
-				</LinearLayout>
+					<Space
+						android:layout_width="50dp"
+						android:layout_height="50dp"
+						/>
 
-				<!--HORIZONTAL LINEARLAYOUT #4  -->
-				<!--_____________________________________________________________________________________________________________________________-->
-				<LinearLayout
-					android:layout_width="match_parent"
-					android:layout_height="wrap_content"
-					android:layout_marginTop="15dp"
-					android:gravity="center"
-					android:orientation="horizontal"
-					>
 
 					<LinearLayout
 						android:layout_width="wrap_content"
@@ -357,10 +402,19 @@
 					</LinearLayout>
 
 
-					<Space
-						android:layout_width="50dp"
-						android:layout_height="50dp"
-						/>
+				</LinearLayout>
+
+
+				<!--HORIZONTAL LINEARLAYOUT #5  -->
+				<!--_____________________________________________________________________________________________________________________________-->
+				<LinearLayout
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:layout_marginTop="15dp"
+					android:gravity="center"
+					android:orientation="horizontal"
+					>
+
 
 					<LinearLayout
 						android:layout_width="wrap_content"
@@ -392,19 +446,11 @@
 							/>
 					</LinearLayout>
 
-				</LinearLayout>
 
-
-				<!--HORIZONTAL LINEARLAYOUT #5  -->
-				<!--_____________________________________________________________________________________________________________________________-->
-				<LinearLayout
-					android:layout_width="match_parent"
-					android:layout_height="wrap_content"
-					android:layout_marginTop="15dp"
-					android:gravity="center"
-					android:orientation="horizontal"
-					>
-
+					<Space
+						android:layout_width="50dp"
+						android:layout_height="50dp"
+						/>
 
 					<LinearLayout
 						android:layout_width="wrap_content"
@@ -433,29 +479,6 @@
 							android:layout_weight="1"
 							android:gravity="center"
 							android:text="@string/main_label_avantbras"
-							/>
-					</LinearLayout>
-
-
-					<Space
-						android:layout_width="50dp"
-						android:layout_height="50dp"
-						/>
-
-					<LinearLayout
-						android:layout_width="wrap_content"
-						android:layout_height="wrap_content"
-						android:gravity="center"
-						android:orientation="vertical"
-						>
-
-						<TextView
-							android:id="@+id/empty"
-							android:layout_width="150dp"
-							android:layout_height="0dp"
-							android:layout_weight="1"
-							android:gravity="center"
-							android:text="@string/empty_value"
 							/>
 					</LinearLayout>
 
