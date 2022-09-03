@@ -1,13 +1,17 @@
 package com.example.Labo2;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NavUtils;
 
 import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Spinner;
@@ -21,12 +25,8 @@ public class CategorieActivity extends AppCompatActivity implements AdapterView.
     //INTERFACE UI
     ListView listViewExercicesCategorie;
     ExerciceArrayAdapter arrayAdapter;
-
-    ArrayList<Exercice> listeExercices;
-
     ImageView imageSelector;
-    Spinner imageSpinner;
-
+    ArrayList<Exercice> listeExercices;
     Context context = CategorieActivity.this;
 
     protected MyDataBaseHelper maDB;
@@ -75,32 +75,50 @@ public class CategorieActivity extends AppCompatActivity implements AdapterView.
         imageSelector = myFormView.findViewById(R.id.drawableImage);
 
         //Get Spinner for the Form
-        imageSpinner = myFormView.findViewById(R.id.drawableSpinner);
+        Spinner imageSpinner = myFormView.findViewById(R.id.spinnerImage);
         imageSpinner.setAdapter(new SpinnerAdapter(this, R.layout.spinner_content_layout, getResources().getStringArray(R.array.spinnerImage)));
         imageSpinner.setOnItemSelectedListener(this);
 
-        //Set Spinner Layout
+        //Set Spinner Layout and Strings
         Spinner spinnerCategorie = myFormView.findViewById(R.id.spinnerCategorie);
         Spinner spinnerSets = myFormView.findViewById(R.id.spinnerSets);
         Spinner spinnerPause = myFormView.findViewById(R.id.spinnerPause);
         Spinner spinnerRepeat = myFormView.findViewById(R.id.spinnerRepeat);
         Spinner spinnerDuree = myFormView.findViewById(R.id.spinnerDuree);
 
-        spinnerCategorie.setAdapter(new SpinnerAdapter(this, R.layout.spinner_content_layout, getResources().getStringArray(R.array.spinnerCategorie)));
 
-        spinnerSets.setAdapter(new SpinnerAdapter(this, R.layout.spinner_content_layout, getResources().getStringArray(R.array.spinnerCategorie)));
-        spinnerPause.setAdapter(new SpinnerAdapter(this, R.layout.spinner_content_layout, getResources().getStringArray(R.array.spinnerCategorie)));
-        spinnerRepeat.setAdapter(new SpinnerAdapter(this, R.layout.spinner_content_layout, getResources().getStringArray(R.array.spinnerCategorie)));
-        spinnerDuree.setAdapter(new SpinnerAdapter(this, R.layout.spinner_content_layout, getResources().getStringArray(R.array.spinnerCategorie)));
+        spinnerCategorie.setAdapter(new SpinnerAdapter(this, R.layout.spinner_content_layout, getResources().getStringArray(R.array.spinnerCategorie)));
+        spinnerSets.setAdapter(new SpinnerAdapter(this, R.layout.spinner_content_layout, getResources().getStringArray(R.array.spinnerSets)));
+        spinnerPause.setAdapter(new SpinnerAdapter(this, R.layout.spinner_content_layout, getResources().getStringArray(R.array.spinnerPause)));
+        spinnerRepeat.setAdapter(new SpinnerAdapter(this, R.layout.spinner_content_layout, getResources().getStringArray(R.array.spinnerRepeat)));
+        spinnerDuree.setAdapter(new SpinnerAdapter(this, R.layout.spinner_content_layout, getResources().getStringArray(R.array.spinnerDuree)));
+
 
         myForm.setView(myFormView)
                 .setPositiveButton("Create", (dialog, id) -> {
+                    //Get Form Values
+                    EditText nomInput = myFormView.findViewById(R.id.input_title);
+                    String nomForm = nomInput.getText().toString();
+
+                    EditText descriptionInput = myFormView.findViewById(R.id.input_description);
+                    String descriptionForm = descriptionInput.getText().toString();
+
+                    String categorieForm = spinnerCategorie.getSelectedItem().toString();
+                    String setsForm = spinnerSets.getSelectedItem().toString();
+                    String pauseForm = spinnerPause.getSelectedItem().toString();
+                    String repeatForm = spinnerRepeat.getSelectedItem().toString();
+                    String dureeForm = spinnerDuree.getSelectedItem().toString();
+                    String imageForm = imageSpinner.getSelectedItem().toString();
+                    String favoriteForm = "0";
+
+                    //Insert into Database
+                    maDB.insertExercice(nomForm, imageForm, repeatForm, categorieForm, setsForm, dureeForm, descriptionForm, pauseForm, favoriteForm);
 
 
                     arrayAdapter.notifyDataSetChanged();
-
-                    Toast.makeText(context, "Produits sauvegarder correctement!", Toast.LENGTH_LONG).show();
+                    Toast.makeText(context, "Exercice " + nomForm + " sauvegarder correctement!", Toast.LENGTH_LONG).show();
                 })
+
                 .setNegativeButton("Cancel", (dialog, id) -> dialog.dismiss());
         myForm.create();
 
@@ -123,6 +141,21 @@ public class CategorieActivity extends AppCompatActivity implements AdapterView.
     @Override
     public void onNothingSelected(AdapterView<?> adapterView) {
 
+    }
+
+    //****************\\
+    //  BACK BUTTON    \\
+    //*******************************************************************************************************************************************
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                NavUtils.navigateUpFromSameTask(this);
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 
 

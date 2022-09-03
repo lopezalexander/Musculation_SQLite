@@ -71,25 +71,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             buttonList.get(i).setOnClickListener(this);
         }
 
-
-        //************TEST*******************
-        //TEST ALL AND CATEGORIE
-
-        //ArrayList<Exercice> allEntries = maDB.obtenirToutLesExercices();
-        //ArrayList<Exercice> allEntries = maDB.obtenirExerciceParCategorie("Abdominaux");
-
-//        for (Exercice unique : allEntries) {
-//            Log.d("row", "///////////////////////////////////////////////////////////////////////////////////////////////");
-//            Log.d("row", unique.get_id().toString());
-//            Log.d("row", unique.getTitle());
-//        }
-
-        //TEST INSERT
-        //maDB.insertExercice("test", "test", "test", "test", "test", "test", "test", "test", "test");
-
-        //TEST DELETE
-//        maDB.effacerExercice(37);
-
+ 
     }
 
 

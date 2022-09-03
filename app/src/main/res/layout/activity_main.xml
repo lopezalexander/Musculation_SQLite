@@ -38,12 +38,12 @@
 					android:id="@+id/main_menuLogo"
 					android:layout_width="match_parent"
 					android:layout_height="120dp"
+					android:background="@color/flutterTheme2"
 					android:gravity="center"
 					android:orientation="horizontal"
 					app:layout_constraintEnd_toEndOf="parent"
 					app:layout_constraintStart_toStartOf="parent"
 					app:layout_constraintTop_toTopOf="parent"
-					android:background="@color/flutterTheme2"
 					>
 
 					<TextView
